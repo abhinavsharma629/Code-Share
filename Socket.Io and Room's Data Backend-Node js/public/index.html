@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Socket.IO</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+	<link href="/styles.css" rel="stylesheet" />
+
+</head>
+<body>
+<div id="mario-chat">
+<div id="chat-window">
+<div id="output"></div>
+<div id="feedback"></div>
+<div id="cv"></div>
+</div>
+<input id="handle" type="text" placeholder="Handle" />
+<input id="message" type="text" placeholder="Message" />
+<div>
+<input type="file" id="siofu_input" class="float-left" />
+<button id="record" class="float-right" style="color:black; background-color:grey;"><b>Record Audio</b></button>
+</div>
+<button id="video" style="color:black; background-color:red;"><b>Start Video Chat</b></button>
+<button id="videoCv" style="color:black; background-color:yellow;"><b>Start Video CV</b></button>
+<button id="send">Send Message</button>
+</div>
+<script src="/chat.js"></script>
+</body>
+</html>

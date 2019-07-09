@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Code Share</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js"></script>
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+      integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+      crossorigin="anonymous"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/pnotify@4.0.0/dist/umd/PNotify.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+    />
+    <script src="https://momentjs.com/downloads/moment.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+    />
+    <style type="text/css" media="screen">
+      #loading-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+      .contain-over {
+        width: 100%;
+        height: 100%;
+      }
+      #loading-text {
+        display: block;
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        color: rgba(10, 3, 3, 0.952);
+        width: 100px;
+        height: 30px;
+        margin: -7px 0 0 -45px;
+        text-align: center;
+        font-family: "PT Sans Narrow", sans-serif;
+        font-size: 20px;
+      }
+      #loading-content {
+        display: block;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        width: 170px;
+        height: 170px;
+        margin: -85px 0 0 -85px;
+        border: 3px solid #f00;
+      }
+      #loading-content:after {
+        content: "";
+        position: absolute;
+        border: 3px solid #0f0;
+        left: 15px;
+        right: 15px;
+        top: 15px;
+        bottom: 15px;
+      }
+      #loading-content:before {
+        content: "";
+        position: absolute;
+        border: 3px solid #00f;
+        left: 5px;
+        right: 5px;
+        top: 5px;
+        bottom: 5px;
+      }
+      #loading-content {
+        border: 3px solid transparent;
+        border-top-color: #4d658d;
+        border-bottom-color: #4d658d;
+        border-radius: 50%;
+        -webkit-animation: loader 2s linear infinite;
+        -moz-animation: loader 2s linear infinite;
+        -o-animation: loader 2s linear infinite;
+        animation: loader 2s linear infinite;
+      }
+      #loading-content:before {
+        border: 3px solid transparent;
+        border-top-color: #d4cc6a;
+        border-bottom-color: #d4cc6a;
+        border-radius: 50%;
+        -webkit-animation: loader 3s linear infinite;
+        -moz-animation: loader 2s linear infinite;
+        -o-animation: loader 2s linear infinite;
+        animation: loader 3s linear infinite;
+      }
+      #loading-content:after {
+        border: 3px solid transparent;
+        border-top-color: #84417c;
+        border-bottom-color: #84417c;
+        border-radius: 50%;
+        -webkit-animation: loader 1.5s linear infinite;
+        animation: loader 1.5s linear infinite;
+        -moz-animation: loader 2s linear infinite;
+        -o-animation: loader 2s linear infinite;
+      }
+      @-webkit-keyframes loaders {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes loader {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      #content-wrapper {
+        color: #fff;
+        position: fixed;
+        left: 0;
+        top: 20px;
+        width: 100%;
+        height: 100%;
+      }
+      #header {
+        width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        height: 100px;
+        background-color: #666;
+      }
+      #content {
+        width: 800px;
+        height: 1000px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: #888;
+      }
+      /* My css */
+      #codeWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 50%;
+      }
+      #outputScreen {
+        height: 28%;
+      }
+      #codeEditor {
+        height: 66%;
+      }
+      #textWrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 50%;
+        margin-left: 50%;
+        overflow: hidden;
+      }
+      #showImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      #showImg:hover {
+        opacity: 0.7;
+      }
+      #center-text {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      #chat-circle {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        background: #5a5eb9;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        color: white;
+        padding: 28px;
+        cursor: pointer;
+        box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.6),
+          0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+      }
+      .btn#my-btn {
+        background: white;
+        padding-top: 13px;
+        padding-bottom: 12px;
+        border-radius: 45px;
+        padding-right: 40px;
+        padding-left: 40px;
+        color: #5865c3;
+      }
+      #chat-overlay {
+        background: rgba(255, 255, 255, 0.1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 50%;
+        border-radius: 50%;
+        display: none;
+      }
+      .chat-box {
+        display: none;
+        background: #efefef;
+        position: absolute;
+        right: 30px;
+        bottom: 50px;
+        width: 40%;
+        max-width: 40%;
+        max-height: 80%;
+        border-radius: 5px;
+        box-shadow: 0px 5px 35px 9px #ccc;
+        overflow: hidden;
+      }
+      .chat-box-toggle {
+        float: right;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+      .chat-box-header {
+        background: #5a5eb9;
+        height: 25px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: white;
+        text-align: center;
+        font-size: 15px;
+        padding-top: 5px;
+      }
+      .chat-box-body {
+        position: relative;
+        height: auto;
+        border: 1px solid #ccc;
+        overflow: hidden;
+      }
+      .chat-box-body:after {
+        content: "";
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=");
+        opacity: 0.1;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 50%;
+        position: absolute;
+        z-index: -1;
+      }
+      @import url(https://fonts.googleapis.com/css?family=Lato:400, 700);
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+      body {
+        font: 14px/20px "Lato", Arial, sans-serif;
+        padding: 40px 0;
+      }
+      .container {
+        margin: 0 auto;
+        width: 750px;
+        background: #444753;
+        border-radius: 5px;
+      }
+      .people-list {
+        width: 250px;
+        float: left;
+        color: white;
+      }
+      .people-list ul {
+        overflow-y: scroll;
+        padding: 20px;
+        height: 730px;
+      }
+      .people-list ul li {
+        padding-bottom: 20px;
+      }
+      .people-list img {
+        float: left;
+      }
+      .people-list .about {
+        float: left;
+        margin-top: 8px;
+      }
+      .people-list .about {
+        padding-left: 8px;
+      }
+      .people-list .status {
+        color: #92959e;
+      }
+      .chat {
+        width: 70%;
+        float: left;
+        margin-left: 30%;
+        background: #f2f5f8;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #434651;
+        position: absolute;
+      }
+      .chat .chat-header {
+        padding: 20px;
+        border-bottom: 2px solid white;
+      }
+      .chat .chat-header img {
+        float: left;
+      }
+      .chat .chat-header .chat-about {
+        float: left;
+        padding-left: 10px;
+        margin-top: 6px;
+      }
+      .chat .chat-header .chat-with {
+        font-weight: bold;
+        font-size: 16px;
+      }
+      .chat .chat-header .chat-num-messages {
+        color: #92959e;
+      }
+      .chat .chat-header .fa-star {
+        float: right;
+        color: #d8dadf;
+        font-size: 20px;
+        margin-top: 12px;
+      }
+      .chat .chat-history {
+        padding: 30px 30px 20px;
+        border-bottom: 2px solid white;
+        overflow-y: scroll;
+        height: 575px;
+      }
+      .chat .chat-history .message-data {
+        margin-bottom: 15px;
+      }
+      .chat .chat-history .message-data-time {
+        color: #a8aab1;
+        padding-left: 6px;
+      }
+      .chat .chat-history .message {
+        color: white;
+        padding: 18px 20px;
+        line-height: 26px;
+        font-size: 16px;
+        border-radius: 7px;
+        margin-bottom: 30px;
+        width: 90%;
+        position: relative;
+      }
+      .chat .chat-history .message:after {
+        bottom: 100%;
+        left: 7%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-bottom-color: #86bb71;
+        border-width: 10px;
+        margin-left: -10px;
+      }
+      .chat .chat-history .my-message {
+        background: #86bb71;
+      }
+      .chat .chat-history .other-message {
+        background: #94c2ed;
+      }
+      .chat .chat-history .other-message:after {
+        border-bottom-color: #94c2ed;
+        left: 93%;
+      }
+      .chat .chat-message {
+        padding: 30px;
+      }
+      .chat .chat-message textarea {
+        width: 100%;
+        border: none;
+        padding: 10px 20px;
+        font: 14px/22px "Lato", Arial, sans-serif;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        resize: none;
+      }
+      .chat .chat-message .fa-file-o,
+      .chat .chat-message .fa-file-image-o {
+        font-size: 16px;
+        color: gray;
+        cursor: pointer;
+      }
+      .chat .chat-message button {
+        float: right;
+        color: #94c2ed;
+        font-size: 16px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        background: #f2f5f8;
+      }
+      .chat .chat-message button:hover {
+        color: #75b1e8;
+      }
+      .online,
+      .offline,
+      .me {
+        margin-right: 3px;
+        font-size: 10px;
+      }
+      .online {
+        color: #86bb71;
+      }
+      .offline {
+        color: #e38968;
+      }
+      .me {
+        color: #94c2ed;
+      }
+      .align-left {
+        text-align: left;
+      }
+      .align-right {
+        text-align: right;
+      }
+      .float-right {
+        float: right;
+      }
+      .clearfix:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+      }
+      .blur {
+        filter: blur(5px);
+        -webkit-filter: blur(5px);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="contain-over" id="load">
+      <div id="loading-wrapper">
+        <div id="loading-text">Checking For Any Connected Room</div>
+        <div id="loading-content"></div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="row blur" style="margin-top: 20%; margin-left: 40%" id="main">
+      <button
+        type="button"
+        class="btn btn-success"
+        data-toggle="modal"
+        data-target="#exampleModal"
+      >
+        Connect/Join
+      </button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#exampleModal1"
+      >
+        Create
+      </button>
+    </div>
+
+    <!-- Join Room Modal-->
+    <div
+      class="modal fade bd-example-modal-lg"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="exampleModalLabel"
+              style="margin-left: 40%;"
+            >
+              Code Share
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-title">
+            &nbsp;<label for="selectImg" class="btn btn-dark"
+              >Select Your Avtar</label
+            >
+            <input
+              type="file"
+              name="selectImg"
+              accept="image/*"
+              id="selectImg"
+              style="visibility: hidden;"
+            />
+            <img
+              src=""
+              id="showImg"
+              onclick="showInp()"
+              style="margin-left: 40%;"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Room Id</span>
+              </div>
+              <input
+                id="joinRoomId"
+                class="form-control validate"
+                placeholder="Room Id"
+                type="text"
+                aria-label="Given Room Id"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="joinRoom('join')"
+            >
+              Join Room
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Create Room Modal-->
+    <div
+      class="modal fade bd-example-modal-lg"
+      id="exampleModal1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              id="exampleModalLabel1"
+              style="margin-left: 40%;"
+            >
+              Code Share
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-title">
+            &nbsp;<label for="selectImg" class="btn btn-dark"
+              >Select Your Avtar</label
+            >
+            <input
+              type="file"
+              name="selectImg"
+              accept="image/*"
+              id="selectImg"
+              style="visibility: hidden;"
+            />
+            <img
+              src=""
+              id="showImg"
+              onclick="showInp()"
+              style="margin-left: 40%;"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span
+                  class="input-group-text"
+                  id="basic-addon1"
+                  onclick="guid()"
+                  style="cursor:pointer"
+                  >Generate Room Id</span
+                >
+              </div>
+              <input
+                id="createRoomId"
+                class="form-control validate"
+                placeholder="Room Id"
+                readonly
+                style="cursor:pointer; background-color: white;"
+                type="text"
+                aria-label="New Room Id"
+                aria-describedby="basic-addon1"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="createRoomRights"
+                  >Room Rights</label
+                >
+              </div>
+              <select class="custom-select" id="createRoomRights">
+                <option value="read">Readonly</option>
+                <option value="all">Read & Write</option>
+              </select>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="createRoom()"
+            >
+              Create Room
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var room1;
+    var socket = io.connect("http://localhost:3000/", {
+      query: "username={{username}}"
+    });
+
+    socket.on("connect", function() {
+      socket.emit("connectcheck", {
+        user: "{{username}}"
+      });
+    });
+    socket.on("adminChecked", function(data) {
+      console.log("Ok admin Connecting you to your room");
+      room1 = data.roomId;
+      changeScreen(data.roomId, data.rights, "isAdmin");
+    });
+
+    // Random Room Id Generator
+    function guid() {
+      function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      }
+      var id =
+        s4() +
+        s4() +
+        "-" +
+        s4() +
+        "-" +
+        s4() +
+        "-" +
+        s4() +
+        "-" +
+        s4() +
+        s4() +
+        s4();
+
+      $("#createRoomId").val(id);
+    }
+
+    socket.on("noRoom", function(data) {
+      console.log("No Previous Room available");
+      setTimeout(function() {
+        $("#load").remove();
+        $("#main").removeClass("blur");
+        guid();
+        var notice = PNotify.info({
+          text:
+            "Welcome {{username}}!! You were not connected to any previous rooms!!",
+          animateSpeed: "fast",
+          modules: {
+            Buttons: {
+              closer: false,
+              sticker: false
+            }
+          }
+        });
+        notice.on("click", function() {
+          notice.close();
+        });
+
+        // PNotify.error({
+        //   text:
+        //     "Welcome {{username}}!! You were not connected to any previous rooms!!"
+        // });
+      }, 3000);
+    });
+
+    socket.on("adminConnect", function(data) {
+      console.log("No Previous Room available");
+      var notice = PNotify.alert({
+        text: "The Group's Admin reconnected!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    document
+      .getElementById("selectImg")
+      .addEventListener("change", function(e) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          $("#showImg")
+            .attr("src", e.target.result)
+            .width(200)
+            .height(200);
+        };
+
+        reader.readAsDataURL(document.getElementById("selectImg").files[0]);
+      });
+
+    function showInp() {
+      $("#selectImg").show(100);
+    }
+    function createRoom() {
+      console.log($("#createRoomId").val());
+      socket.emit("create", {
+        id: $("#createRoomId").val(),
+        rights: $("#createRoomRights").val()
+      });
+    }
+
+    function joinRoom() {
+      console.log($("#joinRoomId").val());
+      socket.emit("join", {
+        id: $("#joinRoomId").val()
+      });
+    }
+
+    //Created
+    socket.on("self-created", function(data) {
+      console.log(data);
+      console.log("all");
+      room1 = data.room;
+      changeScreen($("#joinRoomId").val(), "all", "isAdmin");
+      var notice = PNotify.success({
+        text: "Welcome {{username}} ; You Successfully Created The Room!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    socket.on("self-connected", function(data) {
+      console.log(data);
+      room1 = data.room;
+      console.log(room1);
+      changeScreen($("#joinRoomId").val(), data.rights);
+      var notice = PNotify.success({
+        text: "Welcome {{username}} ; You Successfully Connected To The Room!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    socket.on("self-disconnectedhim", function(data) {
+      location.reload(true);
+      if (data.reason === "admin") {
+        var notice = PNotify.alert({
+          text: "Your Rooms Admin Removed/Deleted The Room!!",
+          animateSpeed: "fast",
+          modules: {
+            Buttons: {
+              closer: false,
+              sticker: false
+            }
+          }
+        });
+        notice.on("click", function() {
+          notice.close();
+        });
+      } else {
+        var notice = PNotify.success({
+          text:
+            "Congratulations {{username}} ; You Successfully Disconnected To The Room!!",
+          animateSpeed: "fast",
+          modules: {
+            Buttons: {
+              closer: false,
+              sticker: false
+            }
+          }
+        });
+        notice.on("click", function() {
+          notice.close();
+        });
+      }
+    });
+
+    socket.on("disconnectedhim", function(data) {
+      var notice = PNotify.info({
+        text: data.username + " Disconnected To The Room!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    //Unable To Create
+    socket.on("self-create-error", function(data) {
+      console.log(data);
+      $("#exampleModal1").modal("hide");
+      var notice = PNotify.error({
+        text: "Room With This Name/Id Already Exists !! Try With Another One!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    socket.on("self-join-error", function(data) {
+      console.log(data);
+      $("#exampleModal").modal("toggle");
+      var notice = PNotify.error({
+        text:
+          "Error Connecting To The Room!! Either Room With This Name/Id Doesn't Exists Or We Encountered An Issue(Please Report) Or Please Try Connecting Again!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+
+    socket.on("connected", function(data) {
+      console.log(data);
+      var notice = PNotify.success({
+        text: data.username + " just Joined The Room!!",
+        animateSpeed: "fast",
+        modules: {
+          Buttons: {
+            closer: false,
+            sticker: false
+          }
+        }
+      });
+      notice.on("click", function() {
+        notice.close();
+      });
+    });
+  </script>
+  <!-- Change Page Content On Connected -->
+  <script>
+    function changeScreen(id, rights, adminCheck) {
+      console.log("Change Id is:- " + " " + room1);
+      //   $("body").html();
+      document.body.innerHTML = "";
+      $("body").html(`
+              <div class="contain" id="codeWrapper">
+                <nav
+                  class="navbar navbar-expand-sm navbar-dark bg-dark "
+                  style="width:100%; height: 3%;"
+                >
+
+                    <a class="navbar-brand" href="#">Code Share</a>
+
+
+                  <ul class="navbar-nav">
+                          <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle"
+                          href="#"
+                          id="navbarDropdown"
+                          role="button"
+                          data-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          >Python >= 3</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#" id="python" >Python</a>
+                          <a class="dropdown-item" href="#" id="java" >Java</a>
+                          <a class="dropdown-item" href="#" id="cpp" >C++</a>
+                          <a class="dropdown-item" href="#" id="c" >C</a>
+                        </div>
+                        </li>
+
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" style="margin-left: 600%">Submit</a>
+                    </li>
+                  </ul>
+                </nav>
+                <div id="codeEditor"></div>
+                <nav
+                  class="navbar navbar-expand-sm bg-dark navbar-dark"
+                  style="width:100%; height: 3%;"
+                >
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <i class="fa fa-spinner fa-spin" style="font-size:22px; color: white"></i> &nbsp;
+                          <a class="navbar-brand" href="#">Output Screen</a>
+                        </li>
+
+                  </ul>
+                </nav>
+                <div id="outputScreen"></div>
+              </div>
+              <div class="contain" id="textWrapper">
+                <div id="toolbar">
+                    <input type="file" id="fileToLoad">
+                    <span id='sp' style="cursor:pointer"><i style='font-size:22px' class='fas'>Import &#xf56f;</i></span>
+                    <span id='disconnect' style="cursor:pointer; margin-left: 15%;"><i class='fab fa-cloudsmith' style='font-size:23px;color:red'>&nbsp;Disconnect</i></span>
+                    <span id="settings" style="cursor:pointer; margin-left: 10%;"><i class="fa fa-gear fa-spin" style="font-size:24px"></i></span>
+                </div>
+                <div id="textEditor"></div>
+              </div>
+
+
+              <div id="chat-circle" class="btn btn-raised">
+        <div id="chat-overlay"></div>
+        <i class="material-icons">speaker_phone</i>
+      </div>
+
+      <div class="chat-box">
+        <div class="chat-box-header">
+          ChatBot
+          <span class="chat-box-toggle"><i class="material-icons">close</i></span>
+        </div>
+        <div class="chat-box-body">
+          <div class="people-list container" id="people-list">
+            <ul class="list" id="users">
+
+            </ul>
+          </div>
+          <div class="chat">
+            <div class="chat-history">
+              <ul id="hist">
+
+              </ul>
+            </div>
+            <!-- end chat-history -->
+
+            <div class="chat-message clearfix">
+              <textarea
+                name="message-to-send"
+                id="message-to-send"
+                placeholder="Type your message"
+                rows="3"
+              ></textarea>
+
+              <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
+              <i class="fa fa-file-image-o"></i>
+
+              <button id="send">Send</button>
+            </div>
+            <!-- end chat-message -->
+          </div>
+          <!-- end chat -->
+        </div>
+      </div>
+
+
+
+             `);
+
+      $("#disconnect").on("click", function() {
+        console.log("disconnecting");
+        console.log(room1);
+        socket.emit("disconnectinghim", {
+          id: room1,
+          user: "{{username}}"
+        });
+        room1 = null;
+      });
+
+      $("#settings").on("click", function() {
+        console.log("df");
+        // $("#settingsModal").modal("show");
+      });
+      //   $("#selectLang").on("click", function(e) {
+      //     if (e.target.id === "python") {
+      //       $("#navbarDropdown").text("Python >= 3");
+      //     } else if (e.target.id === "java") {
+      //       $("#navbarDropdown").text("Java");
+      //     } else if (e.target.id === "cpp") {
+      //       $("#navbarDropdown").text("C++");
+      //     } else if (e.target.id === "c") {
+      //       $("#navbarDropdown").text("C");
+      //     }
+
+      //     console.log(e);
+      //     changeLang(e.target.id);
+      //   });
+
+      var audio = new Audio("/media/alerts/alert.mp3");
+
+      setInterval(function() {
+        console.log("Regular check id:- " + " " + room1);
+        socket.emit("members", {
+          room: room1
+        });
+      }, 15000);
+
+      socket.on("members", function(data) {
+        var user = "{{username}}";
+        console.log(data.members["joinedConnections"]);
+        if (data.members["joinedConnections"].length === 0) {
+          $("#users").empty();
+        } else {
+          data.members["joinedConnections"].forEach(name => {
+            if (name !== user) {
+              console.log(name);
+              $("#users").empty();
+              $("#users").append(
+                `
+              <li class="clearfix">
+                <img
+                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg"
+                  alt="avatar"
+                />
+                <div class="about">
+                  <div class="name">` +
+                  name +
+                  `</div>
+                  <div class="status">
+                    <i class="fa fa-circle online"></i> online
+                  </div>
+                </div>
+              </li>
+              `
+              );
+            }
+          });
+        }
+      });
+
+      $("#send").on("click", function() {
+        var msg = $("#message-to-send").val();
+        if (msg) {
+          socket.emit("chat", {
+            msg: msg,
+            room: room1,
+            name: "{{username}}"
+          });
+          let date = moment(new Date(), "YYYY-MM-DD");
+
+          $("#hist").append(
+            `
+          <li class="clearfix">
+                  <div class="message-data align-right">
+                    <span class="message-data-time">` +
+              date.fromNow() +
+              `</span> &nbsp;
+                    &nbsp; <span class="message-data-name">{{username}}</span>
+                    <i class="fa fa-circle me"></i>
+                  </div>
+                  <div class="message other-message float-right">` +
+              msg +
+              `</div>
+          </li>
+          `
+          );
+          $("#message-to-send").val("");
+        }
+      });
+
+      socket.on("chat", function(data) {
+        let date = moment(new Date(), "YYYY-MM-DD");
+        $("#hist").append(
+          `<li>
+                  <div class="message-data">
+                    <span class="message-data-name"
+                      ><i class="fa fa-circle online"></i>` +
+            data.name +
+            `</span
+                    >
+                    <span class="message-data-time">` +
+            date.fromNow() +
+            `</span>
+                  </div>
+                  <div class="message my-message">` +
+            data.msg +
+            `</div>
+            </li>
+          `
+        );
+        console.log($("#chat-circle").is(":hidden"));
+        if ($("#chat-circle").is(":hidden") === false) {
+          $("#chat-circle").toggle("scale");
+          $(".chat-box").toggle("scale");
+        }
+
+        audio.play();
+      });
+
+      $(document).delegate(".chat-btn", "click", function() {
+        var value = $(this).attr("chat-value");
+        var name = $(this).html();
+        $("#chat-input").attr("disabled", false);
+        generate_message(name, "self");
+      });
+
+      $("#chat-circle").click(function() {
+        $("#chat-circle").toggle("scale");
+        $(".chat-box").toggle("scale");
+      });
+
+      $(".chat-box-toggle").click(function() {
+        $("#chat-circle").toggle("scale");
+        $(".chat-box").toggle("scale");
+      });
+
+      var currentLang = "py";
+      function changeLang(name) {
+        console.log("Dfgdg");
+        currentLang = name;
+        editor.session.setMode("ace/mode/" + name);
+        var data;
+        var mode = name;
+        editor.setValue("");
+        var pos = {
+          row: 0,
+          col: 0
+        };
+        if (name === "python") {
+          data = py;
+          editor.session.insert(pos, py);
+        } else if (name === "java") {
+          data = java;
+          editor.session.insert(pos, java);
+        } else if (name === "cpp") {
+          data = cpp;
+          editor.session.insert(pos, cpp);
+        } else {
+          data = c;
+          editor.session.insert(pos, c);
+        }
+
+        socket.emit("changeSession", {
+          room: room1,
+          currRow: 0,
+          currCol: 0,
+          data: data,
+          mode: mode
+        });
+      }
+      $("#python").on("click", function() {
+        changeLang("python");
+      });
+      $("#java").on("click", function() {
+        changeLang("java");
+      });
+      $("#cpp").on("click", function() {
+        changeLang("cpp");
+      });
+      $("#c").on("click", function() {
+        changeLang("c");
+      });
+
+      $("#sp").on("click", function() {
+        loadFileAsText();
+      });
+
+      //   document.body.innerHTML = html;
+      var java = `/*package whatever //do not write package name here */
+
+      import java.io.*;
+
+      class GFG {
+        public static void main (String[] args) {
+          System.out.println("GfG!");
+        }
+      }`;
+
+      var py = `print("Hello")`;
+
+      var cpp = `#include <iostream>
+      using namespace std;
+
+      int main() {
+        cout<<"GfG!";
+        return 0;
+      }`;
+
+      var c = `#include <stdio.h>
+
+      int main() {
+      //code
+      return 0;
+      }`;
+      // var editor = ace.edit("codeEditor");
+      // editor.setTheme("ace/theme/monokai");
+      // editor.setOption("indentedSoftWrap", false);
+      // editor.setShowPrintMargin(false);
+      // editor.session.setMode("ace/mode/python");
+      // editor.session.insert(
+      //   {
+      //     row: 0,
+      //     col: 0
+      //   },
+      //   py
+      // );
+      // editor.setOptions({
+      //   readOnly: true,
+      //   highlightActiveLine: false,
+      //   highlightGutterLine: false
+      // });
+
+      var toolbarOptions = [
+        [{ font: [] }],
+        ["bold", "italic", "underline"],
+        ["blockquote", "code-block"],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ align: [] }]
+      ];
+      if (adminCheck && adminCheck === "isAdmin") {
+        var quill = new Quill("#textEditor", {
+          modules: {
+            toolbar: toolbarOptions
+          },
+          theme: "snow"
+        });
+
+        var quill1 = new Quill("#outputScreen", {
+          modules: {
+            toolbar: false
+          },
+          theme: "snow"
+        });
+
+        var editor = ace.edit("codeEditor");
+        editor.setTheme("ace/theme/monokai");
+        editor.setOption("indentedSoftWrap", false);
+        editor.setShowPrintMargin(false);
+        editor.session.setMode("ace/mode/python");
+        editor.session.insert(
+          {
+            row: 0,
+            col: 0
+          },
+          py
+        );
+      } else if (rights === "all") {
+        var quill = new Quill("#textEditor", {
+          modules: {
+            toolbar: toolbarOptions
+          },
+          theme: "snow"
+        });
+
+        var quill1 = new Quill("#outputScreen", {
+          modules: {
+            toolbar: false
+          },
+          theme: "snow",
+          readOnly: true
+        });
+
+        var editor = ace.edit("codeEditor");
+        editor.setTheme("ace/theme/monokai");
+        editor.setOption("indentedSoftWrap", false);
+        editor.setShowPrintMargin(false);
+        editor.session.setMode("ace/mode/python");
+        editor.session.insert(
+          {
+            row: 0,
+            col: 0
+          },
+          py
+        );
+      } else {
+        var quill = new Quill("#textEditor", {
+          modules: {
+            toolbar: toolbarOptions
+          },
+          readOnly: true,
+          theme: "snow"
+        });
+
+        var quill1 = new Quill("#outputScreen", {
+          modules: {
+            toolbar: false
+          },
+          theme: "snow",
+          readOnly: true
+        });
+        var editor = ace.edit("codeEditor");
+        editor.setTheme("ace/theme/monokai");
+        editor.setOption("indentedSoftWrap", false);
+        editor.setShowPrintMargin(false);
+        editor.session.setMode("ace/mode/python");
+        editor.session.insert(
+          {
+            row: 0,
+            col: 0
+          },
+          py
+        );
+        editor.setOptions({
+          readOnly: true,
+          highlightActiveLine: false,
+          highlightGutterLine: false
+        });
+        editor.renderer.$cursorLayer.element.style.display = "none";
+      }
+      var currText;
+      var lastText;
+      var pos;
+      var keyCode = -1;
+
+      //CODE EDITOR
+      var id;
+      $("#codeEditor").on("keyup", function(e) {
+        if (
+          e.keyCode === 9 ||
+          e.keyCode === 13 ||
+          e.keyCode === 8 ||
+          e.keyCode === 46 ||
+          e.keyCode === 40 ||
+          e.keyCode === 38 ||
+          e.keyCode === 39 ||
+          e.keyCode === 37
+        ) {
+          console.log("Tab + Up + Down + LSide + RSide + Backspace + Del");
+          keyCode = e.keyCode;
+          var currRow = editor.getCursorPosition().row;
+          var currline = editor.getSelectionRange().start.row;
+          var currCol = editor.getCursorPosition().column;
+          console.log(currRow + " " + currCol);
+          socket.emit("movCurCode", {
+            room: room1,
+            currRow: currRow,
+            currCol: currCol,
+            keyCode: keyCode,
+            data: String(editor.getSession().getValue())
+          });
+        }
+        if (e.keyCode === 8) {
+          clearTimeout(id);
+          id = setTimeout(function() {
+            compile();
+          }, 5000);
+        }
+      });
+
+      $("#codeEditor").on("paste", function() {
+        var currRow = editor.getCursorPosition().row;
+        var currCol = editor.getCursorPosition().column;
+        socket.emit("writingCode", {
+          room: room1,
+          currRow: currRow,
+          currCol: currCol,
+          data: String(editor.getSession().getValue())
+        });
+        clearTimeout(id);
+        id = setTimeout(function() {
+          compile();
+        }, 5000);
+      });
+
+      $("#codeEditor").on("input", function(e) {
+        var currline = editor.getSelectionRange().start.row;
+        var wholelinetxt = editor.session.getLine(currline);
+        //console.log(content)
+        var currRow = editor.getCursorPosition().row;
+        var currCol = editor.getCursorPosition().column;
+
+        if (currCol !== 0) var currChar = wholelinetxt.charAt(currCol - 1);
+        else var currChar = "";
+        console.log("Room id is" + " " + room1);
+        socket.emit("writingCode", {
+          room: room1,
+          currRow: currRow,
+          currCol: currCol,
+          data: String(editor.getSession().getValue())
+        });
+        clearTimeout(id);
+        id = setTimeout(function() {
+          compile();
+        }, 5000);
+      });
+
+      socket.on("writingCode", function(data) {
+        var makePos = {
+          row: data.currRow + 1,
+          col: data.currCol
+        };
+        console.log(editor.getCursorPosition());
+        editor.setValue("");
+        editor.session.insert(
+          {
+            row: 0,
+            col: 0
+          },
+          data.data
+        );
+      });
+
+      socket.on("changeSession", function(data) {
+        editor.setValue("");
+        editor.session.insert(
+          {
+            row: 0,
+            col: 0
+          },
+          data.data
+        );
+        editor.session.setMode("ace/mode/" + data.mode);
+      });
+
+      socket.on("movCurCode", function(data) {
+        if (data.keyCode === 13) {
+          editor.gotoLine(data.currRow + 1, data.currCol);
+        } else if (data.keyCode === 9) {
+          editor.session.insert(
+            {
+              row: data.currRow,
+              col: data.currCol
+            },
+            "    "
+          );
+        } else if (data.keyCode === 8) {
+          editor.setValue("");
+          editor.session.insert(
+            {
+              row: 0,
+              col: 0
+            },
+            data.data
+          );
+        } else if (data.keyCode === 38) {
+          editor.gotoLine(data.currRow + 1, data.currCol);
+        } else if (data.keyCode === 40) {
+          editor.gotoLine(data.currRow + 1, data.currCol);
+        } else if (data.keyCode === 37) {
+          editor.gotoLine(data.currRow + 1, data.currCol);
+        } else if (data.keyCode === 39) {
+          editor.gotoLine(data.currRow + 1, data.currCol);
+        } else if (data.currCol === 46) {
+          editor.setValue("");
+          editor.session.insert(
+            {
+              row: 0,
+              col: 0
+            },
+            data.data
+          );
+        }
+      });
+
+      //TEXT EDITOR
+
+      $("#textEditor").on("keyup", function(e) {
+        if (
+          e.keyCode === 9 ||
+          e.keyCode === 13 ||
+          e.keyCode === 8 ||
+          e.keyCode === 46 ||
+          e.keyCode === 40 ||
+          e.keyCode === 38 ||
+          e.keyCode === 39 ||
+          e.keyCode === 37
+        ) {
+          console.log("Tab + Up + Down + LSide + RSide + Backspace + Del");
+          keyCode = e.keyCode;
+          var range = quill.getSelection();
+          var index = range.index;
+
+          console.log(index);
+          socket.emit("movCurText", {
+            room: room1,
+            index: index,
+            keyCode: e.keyCode,
+            data: String(quill.getText()),
+            format: quill.getFormat()
+          });
+        }
+      });
+
+      $("#textEditor").on("input", function() {
+        console.log(quill.getFormat());
+        socket.emit("writingText", {
+          room: room1,
+          data: String(quill.getText()),
+          format: quill.getFormat()
+        });
+      });
+
+      $("#textEditor").on("paste", function() {
+        console.log(quill.getFormat());
+        socket.emit("writingText", {
+          room: room1,
+          data: String(quill.getText()),
+          format: quill.getFormat()
+        });
+      });
+
+      socket.on("writingText", function(data) {
+        quill.setContents([{ insert: "\n" }]);
+        quill.setContents({
+          ops: [{ insert: data.data }]
+        });
+      });
+
+      socket.on("movCurText", function(data) {
+        if (data.keyCode === 13) {
+          quill.setContents([{ insert: "\n" }]);
+          quill.setContents({
+            ops: [{ insert: data.data }]
+          });
+        } else if (data.keyCode === 9) {
+          quill.setContents([{ insert: "\n" }]);
+          quill.setContents({
+            ops: [{ insert: data.data }]
+          });
+        } else if (data.keyCode === 8) {
+          quill.setContents([{ insert: "\n" }]);
+          quill.setContents({
+            ops: [{ insert: data.data }]
+          });
+        } else if (data.keyCode === 38) {
+          quill.setSelection(data.index);
+        } else if (data.keyCode === 40) {
+          quill.setSelection(data.index);
+        } else if (data.keyCode === 37) {
+          quill.setSelection(data.index);
+        } else if (data.keyCode === 39) {
+          quill.setSelection(data.index);
+        } else if (data.currCol === 46) {
+          quill.setContents([{ insert: "\n" }]);
+          quill.setContents({
+            ops: [{ insert: data.data }]
+          });
+        }
+      });
+
+      socket.on("output", function(data) {
+        quill1.setContents({
+          ops: [...data.data]
+        });
+      });
+      function compile() {
+        //Code Compile
+        console.log("sdfsdfsd");
+        function uploadBlob() {
+          // create a blob here for testing
+          console.log("dssfsdfdsfdsfsfsd");
+          var blob = new Blob([editor.getSession().getValue()]);
+          //var blob = yourAudioBlobCapturedFromWebAudioAPI;// for example
+          var reader = new FileReader();
+          // this function is triggered once a call to readAsDataURL returns
+          reader.onload = function(event) {
+            var fd = new FormData();
+            fd.append("fileName", "code" + guid1() + "." + currentLang);
+            fd.append("file", event.target.result);
+            console.log(event.target.result);
+            fd.append("user", "{{csrf_token}}");
+            fd.append("csrfmiddlewaretoken", "{{csrf_token}}");
+            $.ajax({
+              type: "POST",
+              url: "http://127.0.0.1:8000/code/submit",
+              data: fd,
+              processData: false,
+              contentType: false
+            }).done(function(data) {
+              // print the output from the upload.php script
+              console.log(data);
+
+              if (data.status === "ok") {
+                $.ajax({
+                  url:
+                    "http://127.0.0.1:8000/code/getResponse?subId=" + data.subId
+                }).done(function(result) {
+                  console.log(result);
+                  var content = String(result["content"]);
+                  console.log(typeof content);
+                  console.log("Content is:- " + " " + content);
+                  content = content.substr(2, content.length - 2);
+                  console.log(content.split("\\n"));
+                  if (result["judged"] === "True") {
+                    if (result.content != "b''") {
+                      var array = [];
+                      content.split("\\n").forEach(function(data) {
+                        array.push({ insert: data });
+                        array.push({ insert: "\n" });
+                      });
+                      console.log(array);
+                      quill1.setContents({
+                        ops: [...array]
+                      });
+                      socket.emit("output", {
+                        data: array,
+                        room: room1
+                      });
+                    } else {
+                      quill1.setContents({
+                        ops: [{ insert: "Successfully Judged" }]
+                      });
+                      socket.emit("output", {
+                        data: [{ insert: "Successfully Judged" }],
+                        room: room1
+                      });
+                    }
+                  } else {
+                    quill1.setContents({
+                      ops: [
+                        {
+                          insert:
+                            "Sorry there was some Error in judging! Please try again"
+                        }
+                      ]
+                    });
+                    socket.emit("output", {
+                      data: [
+                        {
+                          insert:
+                            "Sorry there was some Error in judging! Please try again"
+                        }
+                      ],
+                      room: room1
+                    });
+                  }
+                });
+              }
+            });
+          };
+          var text = reader.readAsText(blob);
+        }
+
+        // Random Room Id Generator
+        function guid1() {
+          function s4() {
+            return Math.floor((1 + Math.random()) * 0x10000)
+              .toString(16)
+              .substring(1);
+          }
+          var id =
+            s4() +
+            s4() +
+            "-" +
+            s4() +
+            "-" +
+            s4() +
+            "-" +
+            s4() +
+            "-" +
+            s4() +
+            s4() +
+            s4();
+
+          return id;
+        }
+
+        uploadBlob();
+      }
+
+      function loadFileAsText() {
+        var fileToLoad = document.getElementById("fileToLoad").files[0];
+        console.log(fileToLoad);
+        var fileReader = new FileReader();
+        console.log(fileReader);
+        fileReader.onload = function(fileLoadedEvent) {
+          var textFromFileLoaded = fileLoadedEvent.target.result;
+          console.log(textFromFileLoaded);
+          socket.emit("writingText", {
+            room: room1,
+            data: textFromFileLoaded
+          });
+          //quill.setContents([{ insert: '\n' }]);
+          quill.setContents({
+            ops: [{ insert: textFromFileLoaded }]
+          });
+        };
+
+        var text = fileReader.readAsText(fileToLoad, "UTF-8");
+        console.log(text);
+      }
+    }
+  </script>
+</html>
