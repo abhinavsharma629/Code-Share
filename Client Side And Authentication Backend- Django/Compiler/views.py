@@ -50,7 +50,7 @@ class submit(APIView):
                 language=4
             print(language)
 
-            os.chdir("/home/abhi/Desktop/chat (copy)/media/portal/runCode")
+            os.chdir(os.getcwd()+"/media/portal/runCode")
             file1=open('Abhi.'+file_ext_check,'w')
             file1.write(file)
             file1.close()

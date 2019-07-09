@@ -20,7 +20,7 @@ def submission(language):
         continue
    
     # Change curr dir to media/portal which contains user uploaded files
-    os.chdir('/home/abhi/Desktop/chat (copy)')
+    currDir=os.getcwd()
     os.chdir(os.getcwd()+"/media/portal/runCode")
     
     # Removing Unnecessary Files If Any
@@ -186,7 +186,7 @@ def submission(language):
     
 
     print("Return code is:- ",returncode)
-    os.chdir('/home/abhi/Desktop/chat (copy)')
+    os.chdir(currDir)
 
     #Error Type
 
